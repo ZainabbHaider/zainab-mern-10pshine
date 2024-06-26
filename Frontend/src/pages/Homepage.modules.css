@@ -1,0 +1,63 @@
+.main {
+    display: flex;
+    height: 100vh; /* Ensure the container takes full viewport height */
+}
+
+.left-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.left-main img {
+    width: 100%;
+    height: auto;
+}
+
+.right-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.right-main h1 {
+    font-size: 6rem; /* Adjust as needed */
+    font-weight: bold;
+    color: #24bab3;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: #24bab3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #1a8986;
+}
+
+.sign-in-button {
+    background-color: #24bab3; /* Primary color for sign-in */
+}
+
+.sign-up-button {
+    background-color: #24bab3; /* Primary color for sign-up */
+}
