@@ -1,0 +1,77 @@
+body {
+  margin: 0; /* Remove default margin */
+  font-family: Georgia, sans-serif; /* Example font family */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #24bab3;
+  position: fixed;
+  width: 99%;  
+  top: 0;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 3em;
+  font-weight: bold;
+  color: white;
+  margin-left: 20%;
+}
+
+.navbar-logo img {
+  height: 60px;
+  margin-left: 20%;
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5%;
+  font-size: 0.9em;
+}
+
+.navbar-button {
+  padding: 10px 10px;
+  margin: 0 10px;
+  color: white;
+  background-color: #24bab3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  outline: 1px solid white;
+}
+
+.navbar-button:hover {
+  background-color: #1a8986;
+}
+
+.navbar-search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Aligns search bar content horizontally */
+  margin: 0 20px; /* Adds some margin to the sides */
+}
+
+.navbar-search input {
+  width: 100%; /* Takes full width of the navbar */
+  max-width: 400px; /* Limits maximum width to 400px */
+  padding: 10px; /* Adds padding inside the input */
+  border: 2px solid #ccc; /* Adds a 2px solid border with light gray color */
+  border-radius: 10px; /* Rounds the corners of the input */
+  font-size: 19px; /* Sets font size */
+  outline: none; /* Removes default focus outline */
+}
+
+.navbar-search input:focus {
+  border-color: #24bab3; /* Changes border color on input focus */
+}
