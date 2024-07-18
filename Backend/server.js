@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors'); // Import cors
 const userRouter = require('./routes/userRoute');
 const notesRouter = require('./routes/notesRoute');
+
 const  logger  = require('./logger');
 const cookieParser = require('cookie-parser');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');

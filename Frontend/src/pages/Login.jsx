@@ -1,22 +1,18 @@
-import axios from "axios";
 import React, { useState } from "react";
+import "./login.modules.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./register.modules.css";
 
-
-function Register() {
+function Login({ setIsLoggedIn }) {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
+    console.log(email, password);
     try {
       const config = {
         headers: {
@@ -26,47 +22,35 @@ function Register() {
 
       setLoading(true);
       const { data } = await axios.post(
-        "/api/users",
-        { firstName, lastName, email, password },
+        "/api/users/login",
+        { email, password },
         config
       );
       console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setError(false);
       setLoading(false);
-      navigate("/");
+      setIsLoggedIn(true);
+      navigate("/mynotes");
     } catch (error) {
       setError(error.response.data.message);
+      setLoading(false);
     }
   };
 
   return (
     <div className="main">
       <div className="right-main">
-        <div className="register">
-
-          <form onSubmit={handleSubmit}> 
-            <h1>Register</h1>
+        <div className="login">
+          <form onSubmit={handleSubmit}>
+            <h1>Sign in</h1>
             {error && <p className="error">{error}</p>}
-            <label htmlFor="">First Name</label>
-            <input
-              name="First name"
-              type="text"
-              placeholder="First name"
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            <label htmlFor="">Last Name</label>
-            <input
-              name="Last name"
-              type="text"
-              placeholder="Last name"
-              onChange={(e) => setLastName(e.target.value)}
-            />
             <label htmlFor="">Email</label>
             <input
               name="Email"
-              type="Email"
+              type="text"
               placeholder="Email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="">Password</label>
@@ -74,9 +58,10 @@ function Register() {
               name="password"
               type="password"
               placeholder="Password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
           </form>
         </div>
       </div>
@@ -84,4 +69,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
