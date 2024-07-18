@@ -6,17 +6,13 @@ import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="main">
-      <div className="left-main">
-        <img src={cover} alt="cover" />
-      </div>
-      <div className="right-main">
-        <h1> One Space for All Your Thoughts</h1>
-        <div className="button-container">
-          <button className="sign-in-button">
-            <Link className="link" to="/login">Sign In</Link>
-          </button>
-          <button className="sign-up-button"><Link className="link" to="/register">Sign Up</Link></button>
-        </div>
+      <img src={cover} alt="cover" className="cover-image" />
+      <h1>One Space for All Your Thoughts</h1>
+      <div className="button-container">
+        <button className="sign-in-button">
+          <Link className="link" to="/login">Sign In</Link>
+        </button>
+        <button className="sign-up-button"><Link className="link" to="/register">Sign Up</Link></button>
       </div>
     </div>
   );

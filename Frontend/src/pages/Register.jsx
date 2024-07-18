@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./register.modules.css";
+
 
 function Register() {
   const navigate = useNavigate();
@@ -41,7 +43,8 @@ function Register() {
   return (
     <div className="main">
       <div className="right-main">
-        <div className="login">
+        <div className="register">
+
           <form onSubmit={handleSubmit}> 
             <h1>Register</h1>
             {error && <p className="error">{error}</p>}

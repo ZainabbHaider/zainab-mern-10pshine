@@ -25,13 +25,15 @@ function Navbar({ isLoggedIn, onLogout }) {
       <div className="navbar-buttons">
         {isLoggedIn ? (
           <>
-            <button className="navbar-button">My Notes</button>
+            <button className="navbar-button" onClick={()=>{
+               navigate("/mynotes");
+            }}>My Notes</button>
             <button className="navbar-button">New Note</button>
             <button className="navbar-button" onClick={()=>{
                localStorage.removeItem("userInfo");
               //  setIsLoggedIn(false);
                navigate("/");
-            }}>Logout</button>
+            }}>My Profile</button>
           </>
         ) : (
           <>

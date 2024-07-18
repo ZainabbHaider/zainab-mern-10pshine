@@ -1,15 +1,19 @@
 .main {
     display: flex;
+    margin-top: 40px;
+
     .left-main {
       width: 50%;
       height: 100%;
       background-color: white;
     }
-    .login {
+    .register {
       display: flex;
       /* margin: 5% 10% 10% 15%; */
       align-items: center;
-      
+      h1{
+        text-align: center;
+      }
       .error{
         color: white;
         font-size: 20px;

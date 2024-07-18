@@ -20,20 +20,22 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    // Set token in an HTTP-only cookie
+    res.cookie("token", generateToken(user._id), {
+      httpOnly: true,
+    });
+
     res.status(201).json({
       _id: user._id,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      password: user.password,
-      token: generateToken(user._id),
+      token: generateToken(user._id), // Include token in the response if necessary
     });
   } else {
     res.status(400);
     throw new Error("Invalid user data");
   }
-
-  res.json({ email });
 });
 
 const login = asyncHandler(async (req, res) => {

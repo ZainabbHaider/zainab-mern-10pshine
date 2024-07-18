@@ -1,37 +1,26 @@
 .main {
     display: flex;
-    height: 100vh; /* Ensure the container takes full viewport height */
-}
-
-.left-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
-
-.left-main img {
-    width: 100%;
-    height: auto;
-}
-
-.right-main {
-    flex: 1;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 90vh; /* Ensure the container takes full viewport height */
     background-color: white;
-    padding: 20px;
+    /* text-align: center; */
 }
 
-.right-main h1 {
-    font-size: 6rem; /* Adjust as needed */
+.cover-image {
+    width: auto;
+    height: 100px; /* Set a specific height */
+    margin-bottom: -140px; /* Space between the image and the tagline */
+    object-fit: contain; /* Ensure the image fits within the given dimensions without stretching */
+}
+
+h1 {
+    font-size: 3.2rem; /* Adjust as needed */
     font-weight: bold;
     color: #24bab3;
-    text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px; /* Space between the tagline and the buttons */
+
 }
 
 .button-container {
@@ -60,4 +49,9 @@ button:hover {
 
 .sign-up-button {
     background-color: #24bab3; /* Primary color for sign-up */
+}
+
+.link {
+    text-decoration: none;
+    color: white;
 }
