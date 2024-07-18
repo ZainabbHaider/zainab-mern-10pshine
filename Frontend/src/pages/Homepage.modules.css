@@ -1,0 +1,56 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Ensure the container takes full viewport height */
+    background-color: white;
+    /* text-align: center; */
+}
+
+.cover-image {
+    width: auto;
+    height: 100px; /* Set a specific height */
+    margin-bottom: -140px; /* Space between the image and the tagline */
+    object-fit: contain; /* Ensure the image fits within the given dimensions without stretching */
+}
+
+h1 {
+    font-size: 3.2rem; /* Adjust as needed */
+    font-weight: bold;
+    color: #24bab3;
+    margin-bottom: 60px; /* Space between the tagline and the buttons */
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: #24bab3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #1a8986;
+}
+
+.sign-in-button {
+    background-color: #24bab3; /* Primary color for sign-in */
+}
+
+.sign-up-button {
+    background-color: #24bab3; /* Primary color for sign-up */
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
