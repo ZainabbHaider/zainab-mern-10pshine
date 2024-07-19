@@ -1,40 +1,54 @@
+/* NoteCard.modules.css */
+
 .note-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-  }
-  
-  .note-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .note-card p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .note-actions {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .edit-button,
-  .delete-button {
-    background-color: white;
-    img{
-        width: 25px;
-        height: 25px;
-    }
-  }
-  
-  .edit-button:hover,
-  .delete-button:hover {
-    background-color: white;
-  }
+  width: 500px; /* Fixed width */
+  height: 180px; /* Fixed height */
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.note-content {
+  height: 80px; /* Fixed height for content area */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-actions {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-button,
+.delete-button,
+.view-button {
+  background-color: white;
+  color: black; /* Use black color for the text to be visible */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.edit-button img,
+.delete-button img,
+.view-button img {
+  width: 25px;
+  height: 25px;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.view-button:hover {
+  background-color: #ccc;
+}
