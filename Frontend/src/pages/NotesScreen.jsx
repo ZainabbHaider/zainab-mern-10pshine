@@ -24,11 +24,15 @@ function NotesScreen() {
       setError(error.message);
       console.error("Error fetching notes:", error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchNotes();
-  }, [])
+  }, []);
+
+  const handleClick = () => {
+    navigate("/add");
+  };
 
   const deleteNote = async (id) => {
     try {
@@ -39,12 +43,14 @@ function NotesScreen() {
       console.error("There was an error deleting the note!", error);
     }
   };
-  
+
   return (
     <div className="notes-screen">
       <div className="notes-header">
         <h2>My Notes</h2>
-        <button className="add-note-button">+</button>
+        <button className="add-note-button" onClick={handleClick}>
+          +
+        </button>
       </div>
       {error && <div className="error-message">Error: {error}</div>}
       {message && <div className="info-message">{message}</div>}

@@ -10,7 +10,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.3",
     "pino": "^9.2.0",
-    "pino-pretty": "^11.2.1"
+    "pino-pretty": "^11.2.1",
+    "react-quill": "^2.0.0"
   },
   "name": "10pearls---project",
   "version": "1.0.0",
