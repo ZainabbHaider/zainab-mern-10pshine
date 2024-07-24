@@ -1,25 +1,24 @@
-/* NoteCard.modules.css */
-
 .note-card {
-  width: 500px; /* Fixed width */
-  height: 180px; /* Fixed height */
+  width: 500px; 
   padding: 20px;
   margin: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: white;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  height: 200px;
 }
 
 .note-content {
-  height: 80px; /* Fixed height for content area */
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  max-height: calc(60% - 20px); 
 }
 
 .note-actions {
+  background-color: white;
   position: absolute;
   bottom: 5px;
   left: 10px;
@@ -32,7 +31,7 @@
 .delete-button,
 .view-button {
   background-color: white;
-  color: black; /* Use black color for the text to be visible */
+  color: black; 
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
