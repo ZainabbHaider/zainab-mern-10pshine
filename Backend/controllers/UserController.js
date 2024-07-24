@@ -1,6 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
+const  logger  = require('../logger');
 
 const registerUser = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
@@ -25,6 +26,7 @@ const registerUser = asyncHandler(async (req, res) => {
       httpOnly: true,
     });
 
+    logger.info(`User registered successfully: ${user.email}`);
     res.status(201).json({
       _id: user._id,
       firstName: user.firstName,
@@ -33,6 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id), // Include token in the response if necessary
     });
   } else {
+    logger.error("Invalid user data");
     res.status(400);
     throw new Error("Invalid user data");
   }
@@ -49,6 +52,7 @@ const login = asyncHandler(async (req, res) => {
       httpOnly: true,
     });
 
+    logger.info(`User logged in successfully: ${user.email}`);
     res.json({
       _id: user._id,
       firstName: user.firstName,
@@ -57,6 +61,7 @@ const login = asyncHandler(async (req, res) => {
       password: user.password,
     });
   } else {
+    logger.error("Invalid email or password");
     res.status(400);
     throw new Error("Invalid email or password");
   }
@@ -66,6 +71,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
+    logger.info(`User profile retrieved: ${user.email}`);
     res.json({
       _id: user._id,
       firstName: user.firstName,
@@ -73,6 +79,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       email: user.email,
     });
   } else {
+    logger.error("User not found");
     res.status(404);
     throw new Error("User not found");
   }
@@ -91,6 +98,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 
     const updatedUser = await user.save();
 
+    logger.info(`User profile updated: ${updatedUser.email}`);
     res.json({
       _id: updatedUser._id,
       firstName: updatedUser.firstName,
@@ -99,6 +107,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       token: generateToken(updatedUser._id),
     });
   } else {
+    logger.error("User not found");
     res.status(404);
     throw new Error("User not found");
   }
