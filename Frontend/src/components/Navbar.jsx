@@ -8,32 +8,42 @@ function Navbar({ isLoggedIn, onLogout }) {
   return (
     <div className="navbar">
       <div className="navbar-left">
-      <Link className="link" to="/">
-        <div className="navbar-logo">
-          <img src={logo} alt="Logo" />
-        </div>
+        <Link className="link" to="/">
+          <div className="navbar-logo">
+            <img src={logo} alt="Logo" />
+          </div>
         </Link>
         <Link className="link" to="/">
           <div className="navbar-title">NoteIt</div>
         </Link>
       </div>
-      {/* {isLoggedIn && (
-        <div className="navbar-search">
-          <input type="text" placeholder="Search notes..." />
-        </div>
-      )} */}
       <div className="navbar-buttons">
         {isLoggedIn ? (
           <>
-            <button className="navbar-button" onClick={()=>{
-               navigate("/mynotes");
-            }}>My Notes</button>
-            <button className="navbar-button">New Note</button>
-            <button className="navbar-button" onClick={()=>{
-               localStorage.removeItem("userInfo");
-              //  setIsLoggedIn(false);
-               navigate("/");
-            }}>My Profile</button>
+            <button
+              className="navbar-button"
+              onClick={() => {
+                navigate("/mynotes");
+              }}
+            >
+              My Notes
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => {
+                navigate("/add");
+              }}
+            >
+              New Note
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              My Profile
+            </button>
           </>
         ) : (
           <>

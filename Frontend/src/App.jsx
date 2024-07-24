@@ -7,6 +7,7 @@ import Homepage from "./Pages/Homepage";
 import Register from "./Pages/Register";
 import NotesScreen from "./pages/NotesScreen";
 import NoteEditScreen from "./pages/NoteEditScreen";
+import ProfileScreen from "./pages/ProfileScreen";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,6 +23,7 @@ function App() {
           <Route path="/mynotes" element={<NotesScreen />} />
           <Route path="/add" element={<NoteEditScreen/>} />
           <Route path="/edit/:id" element={<NoteEditScreen />} />
+          <Route path="/profile" element={<ProfileScreen setIsLoggedIn={setIsLoggedIn}/>} />
         </Routes>
       </div>
     </BrowserRouter>
