@@ -47,5 +47,19 @@ const deleteNote = asyncHandler(async (req, res) => {
     }
 });
 
+const editNote = asyncHandler(async (req, res) => {
+    const note = await Note.findById(req.params.id);
   
-  module.exports = { showNotes, addNote, deleteNote };
+    if (note && note.userId.toString() === req.user._id.toString()) {
+      note.title = req.body.title || note.title;
+      note.content = req.body.content || note.content;
+  
+      const updatedNote = await note.save();
+      res.json(updatedNote);
+    } else {
+      res.status(404);
+      throw new Error("Note not found or you're not authorized to update this note");
+    }
+  });
+  
+  module.exports = { showNotes, addNote, deleteNote, editNote };
