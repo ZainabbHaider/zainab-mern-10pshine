@@ -15,6 +15,7 @@ function ProfileScreen({ setIsLoggedIn }) {
       try {
         const { data } = await axios.get("/api/users/profile");
         setUser(data);
+        setEditedUser(data);
       } catch (error) {
         console.error("Error fetching user details", error);
       }
