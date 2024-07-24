@@ -8,12 +8,12 @@ function Navbar({ isLoggedIn, onLogout }) {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <Link className="link" to="/">
+        <Link className="link" to={isLoggedIn ? "/myNotes" : "/"}>
           <div className="navbar-logo">
             <img src={logo} alt="Logo" />
           </div>
         </Link>
-        <Link className="link" to="/">
+        <Link className="link" to={isLoggedIn ? "/myNotes" : "/"}>
           <div className="navbar-title">NoteIt</div>
         </Link>
       </div>

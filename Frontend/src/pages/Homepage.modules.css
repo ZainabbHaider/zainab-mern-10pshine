@@ -3,23 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh; /* Ensure the container takes full viewport height */
+    height: 90vh; 
     background-color: white;
-    /* text-align: center; */
 }
 
 .cover-image {
     width: auto;
-    height: 100px; /* Set a specific height */
-    margin-bottom: -140px; /* Space between the image and the tagline */
-    object-fit: contain; /* Ensure the image fits within the given dimensions without stretching */
+    height: 100px; 
+    margin-bottom: -140px; 
+    object-fit: contain; 
 }
 
 h1 {
-    font-size: 3.2rem; /* Adjust as needed */
+    font-size: 3.2rem; 
     font-weight: bold;
     color: #24bab3;
-    margin-bottom: 60px; /* Space between the tagline and the buttons */
+    margin-bottom: 60px; 
+    font-style: italic;
 
 }
 
@@ -44,11 +44,11 @@ button:hover {
 }
 
 .sign-in-button {
-    background-color: #24bab3; /* Primary color for sign-in */
+    background-color: #24bab3; 
 }
 
 .sign-up-button {
-    background-color: #24bab3; /* Primary color for sign-up */
+    background-color: #24bab3; 
 }
 
 .link {
