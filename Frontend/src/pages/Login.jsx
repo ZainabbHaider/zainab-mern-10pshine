@@ -12,7 +12,6 @@ function Login({ setIsLoggedIn }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     try {
       const config = {
         headers: {
@@ -26,7 +25,6 @@ function Login({ setIsLoggedIn }) {
         { email, password },
         config
       );
-      console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setError(false);
       setLoading(false);
