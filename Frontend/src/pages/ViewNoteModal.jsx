@@ -3,8 +3,9 @@ import Modal from "react-modal";
 import parse from 'html-react-parser';
 import "./ViewNoteModal.modules.css";
 
-Modal.setAppElement('#root');
-
+if (process.env.NODE_ENV !== 'test') {
+  Modal.setAppElement('#root');
+}
 function ViewNoteModal({ isOpen, onRequestClose, note }) {
   if (!note) return null;
     console.log(note);

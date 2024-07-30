@@ -16,7 +16,6 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
     try {
       const config = {
         headers: {
@@ -30,7 +29,6 @@ function Register() {
         { firstName, lastName, email, password },
         config
       );
-      console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setError(false);
       setLoading(false);
@@ -46,7 +44,7 @@ function Register() {
         <div className="register">
 
           <form onSubmit={handleSubmit}> 
-            <h1>Register</h1>
+            <h1 placeholder="heading">Register</h1>
             {error && <p className="error">{error}</p>}
             <label htmlFor="">First Name</label>
             <input
