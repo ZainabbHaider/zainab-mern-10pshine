@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
+    "chai-http": "^4.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -10,19 +11,27 @@
     "html-react-parser": "^5.1.12",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.3",
+    "nock": "^13.5.4",
     "pino": "^9.2.0",
     "pino-pretty": "^11.2.1",
     "react-modal": "^3.16.1",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "sinon": "^18.0.0"
   },
   "name": "10pearls---project",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/server.js"
+    "start": "dotenv -e .env.development -- cross-env NODE_ENV=development nodemon server.js",
+    "test": "dotenv -e .env.test -- cross-env NODE_ENV=test mocha --exit --timeout 60000"
   },
   "author": "Zainab Haider",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "cross-env": "^7.0.3",
+    "dotenv-cli": "^7.4.2",
+    "mocha": "^10.7.0"
+  }
 }
