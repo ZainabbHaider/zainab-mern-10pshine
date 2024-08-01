@@ -10,8 +10,8 @@ const registerUser = asyncHandler(async (req, res) => {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      res.status(400);
-      throw new Error("User already exists");
+      res.status(400).json({ message: "User already exists" });
+      return;
     }
 
     const user = await User.create({
@@ -37,14 +37,14 @@ const registerUser = asyncHandler(async (req, res) => {
       });
     } else {
       logger.error("Invalid user data");
-      res.status(400);
-      throw new Error("Invalid user data");
+      res.status(400).json({ message: "Invalid user data" });
     }
   } catch (error) {
     logger.error(`Error registering user: ${error.message}`);
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -68,14 +68,14 @@ const login = asyncHandler(async (req, res) => {
       });
     } else {
       logger.error("Invalid email or password");
-      res.status(400);
-      throw new Error("Invalid email or password");
+      res.status(400).json({ message: "Invalid email or password" });
     }
   } catch (error) {
     logger.error(`Error logging in: ${error.message}`);
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 const getUserProfile = asyncHandler(async (req, res) => {
   try {
@@ -124,7 +124,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       });
     } else {
       logger.error("User not found");
-      res.status(404);
+      res.status(404);  
       throw new Error("User not found");
     }
   } catch (error) {
