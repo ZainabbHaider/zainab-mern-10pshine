@@ -34,52 +34,68 @@ const addNote = asyncHandler(async (req, res) => {
     throw new Error("Please fill all fields");
   }
 
-  const note = await Note.create({
-    title,
-    content,
-    userId: req.user._id,
-  });
-  logger.info(`Note added by user ${req.user.firstName}: ${note.title}`);
-  res.status(201).json({ message: "Note added" });
+  try {
+    const note = await Note.create({
+      title,
+      content,
+      userId: req.user._id,
+    });
+    logger.info(`Note added by user ${req.user.firstName}: ${note.title}`);
+    res.status(201).json({ message: "Note added" });
+  } catch (error) {
+    logger.error(`Error adding note: ${error.message}`);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 const deleteNote = asyncHandler(async (req, res) => {
-  const note = await Note.findById(req.params.id);
+  try {
+    const note = await Note.findById(req.params.id);
 
-  if (note && note.userId.toString() === req.user._id.toString()) {
-    await Note.findByIdAndDelete(req.params.id);
-    logger.info(`Note deleted by user ${req.user.firstName}`);
-    res.json({ message: "Note removed" });
-  } else {
-    logger.warn(
-      `User ${req.user.firstName} tried to delete a note they don't own or doesn't exist: ${req.params.id}`
-    );
-    res.status(404);
-    throw new Error(
-      "Note not found or you're not authorized to delete this note"
-    );
+    if (note && note.userId.toString() === req.user._id.toString()) {
+      await Note.findByIdAndDelete(req.params.id);
+      logger.info(`Note deleted by user ${req.user.firstName}`);
+      res.json({ message: "Note removed" });
+    } else {
+      logger.warn(
+        `User ${req.user.firstName} tried to delete a note they don't own or doesn't exist: ${req.params.id}`
+      );
+      res.status(404);
+      throw new Error(
+        "Note not found or you're not authorized to delete this note"
+      );
+    }
+  } catch (error) {
+    logger.error(`Error deleting note: ${error.message}`);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
 const editNote = asyncHandler(async (req, res) => {
-  const note = await Note.findById(req.params.id);
+  try {
+    const note = await Note.findById(req.params.id);
 
-  if (note && note.userId.toString() === req.user._id.toString()) {
-    note.title = req.body.title || note.title;
-    note.content = req.body.content || note.content;
+    if (note && note.userId.toString() === req.user._id.toString()) {
+      note.title = req.body.title || note.title;
+      note.content = req.body.content || note.content;
 
-    const updatedNote = await note.save();
-    logger.info(`Note updated by user ${req.user.firstName}: ${updatedNote.title}`);
-    res.json(updatedNote);
-  } else {
-    logger.warn(
-      `User ${req.user.firstName} tried to edit a note they don't own or doesn't exist: ${req.params.id}`
-    );
-    res.status(404);
-    throw new Error(
-      "Note not found or you're not authorized to update this note"
-    );
+      const updatedNote = await note.save();
+      logger.info(`Note updated by user ${req.user.firstName}: ${updatedNote.title}`);
+      res.json(updatedNote);
+    } else {
+      logger.warn(
+        `User ${req.user.firstName} tried to edit a note they don't own or doesn't exist: ${req.params.id}`
+      );
+      res.status(404);
+      throw new Error(
+        "Note not found or you're not authorized to update this note"
+      );
+    }
+  } catch (error) {
+    logger.error(`Error editing note: ${error.message}`);
+    res.status(500).json({ message: "Server error" });
   }
 });
+
 
 module.exports = { showNotes, addNote, deleteNote, editNote };
