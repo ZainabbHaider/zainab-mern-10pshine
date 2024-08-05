@@ -1,90 +1,99 @@
 # NoteIt - A Note Taking Website
 
-## Overview
-**NoteIt** is a web-based application for taking and organizing notes. It is built using the MERN stack (MongoDB, Express, React, Node.js) as part of an internship project with 10Pearls.
+## Tech Stack
 
-## Features
-- User Authentication (Register, Login, Logout)
-- Dashboard (List of Notes)
-- Create, Read, Update, Delete operations for notes
+### Frontend
+- React
+- React Router
+- Axios
+- Jest (Testing Framework)
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT (JSON Web Token)
+- Pino (Logger)
+- Mocha/Chai (Testing Framework)
+
+## Third-Party Services
+- MongoDB Atlas
+  
+## Environment Variables
+
+- `MONGO_URL`: Connection string for MongoDB
+- `JWT_SECRET`: Secret key for JWT authentication
+- `PORT`: Port number for the backend server
+
+## Running the Project
+
+### Backend
+
+1. Navigate to the backend directory:
+    ```sh
+    cd Backend
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+
+3. Start the backend server:
+    ```sh
+    npm start
+    ```
+
+### Frontend
+
+1. Navigate to the frontend directory:
+    ```sh
+    cd Frontend
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+
+3. Start the frontend development server:
+    ```sh
+    npm start
+    ```
+
+## Running Tests
+
+### Backend Tests
+
+1. Navigate to the backend directory:
+    ```sh
+    cd Backend
+    ```
+
+2. Run the tests:
+    ```sh
+    npm test
+    ```
+
+### Frontend Tests
+
+1. Navigate to the frontend directory:
+    ```sh
+    cd Frontend
+    ```
+
+2. Run the tests:
+    ```sh
+    npm test
+    ```
+
+## Additional Features and Information
+
 - User Profile with Logout
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v12 or higher)
-- MongoDB (local or cloud)
-- Git
-
-### Installation
-
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/your-username/noteit.git
-    cd noteit
-    ```
-
-2. **Install server dependencies**:
-    ```sh
-    cd ../Backend
-    npm install
-    ```
-
-3. **Install client dependencies**:
-    ```sh
-    cd ../Frontend
-    npm install
-    ```
-
-### Setting Up Environment Variables
-
-1. **Create a `.env` file for the backend**:
-    ```sh
-    cd ../Backend
-    touch .env.development
-    ```
-
-2. **Open the `.env` file and fill in the required values**:
-    ```plaintext
-    MONGO_URL=your_mongo_db_connection_string
-    JWT_SECRET=your_jwt_secret
-    PORT=5000
-    ```
-
-### Running the Application
-
-1. **Start the backend server**:
-    ```sh
-    cd ../Backend
-    npm start
-    ```
-
-2. **Start the frontend development server**:
-    ```sh
-    cd ../Frontend
-    npm start
-    ```
-
-3. **Open your browser and navigate to**:
-    ```
-    http://localhost:5173
-    ```
-
-### Running Tests
-
-1. **Run frontend tests**:
-    ```sh
-    cd ../Frontend
-    npm test
-    ```
-
-2. **Run backend tests**:
-    ```sh
-    cd ../Backend
-    npm test
-    ```
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**NoteIt** is developed as an internship project with [10Pearls](https://10pearls.com/).
+  
+#### Information:
+There are three `.env` files used for different environments:
+- `.env`: Contains `PORT` and `JWT_SECRET`
+- `.env.development`: Contains `MONGO_URL` for the development database
+- `.env.test`: Contains `MONGO_URL` for the test database
