@@ -93,7 +93,7 @@
 - User Profile with Logout
   
 #### Information:
-There are three `.env` files used for different environments:
+There are three `.env` files used in the Backend for different environments:
 - `.env`: Contains `PORT` and `JWT_SECRET`
 - `.env.development`: Contains `MONGO_URL` for the development database
 - `.env.test`: Contains `MONGO_URL` for the test database
